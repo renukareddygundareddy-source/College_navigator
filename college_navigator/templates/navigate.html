@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Navigate to {{ location['name'] }}{% endblock %}
+
+{% block content %}
+<section class="nav-header">
+  <div class="container d-flex flex-wrap justify-content-between align-items-center gap-3">
+    <div>
+      <p class="eyebrow">Navigating to</p>
+      <h1 class="mb-0"><i class="bi {{ location['icon'] }}"></i> {{ location['name'] }}</h1>
+      <p class="text-muted mb-0">{{ location['building'] }} &middot; {{ location['floor'] }} &middot; {{ location['timings'] }}</p>
+    </div>
+    <div class="nav-controls">
+      <select id="destination-switch" class="form-select">
+        {% for loc in all_locations %}
+          <option value="{{ loc['id'] }}" {% if loc['id']==location['id'] %}selected{% endif %}>{{ loc['name'] }}</option>
+        {% endfor %}
+      </select>
+      <select id="language-select" class="form-select">
+        <option value="en-US">English</option>
+        <option value="hi-IN">हिंदी (Hindi)</option>
+        <option value="te-IN">తెలుగు (Telugu)</option>
+        <option value="ta-IN">தமிழ் (Tamil)</option>
+        <option value="kn-IN">ಕನ್ನಡ (Kannada)</option>
+      </select>
+    </div>
+  </div>
+</section>
+
+<section class="container-fluid px-0">
+  <div id="map"></div>
+</section>
+
+<section class="container route-info">
+  <div class="row g-3">
+    <div class="col-md-4">
+      <div class="info-card">
+        <div class="info-label">Distance</div>
+        <div class="info-value" id="distance-value">—</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-card">
+        <div class="info-label">Walking Time</div>
+        <div class="info-value" id="eta-value">—</div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="info-card">
+        <div class="info-label">Voice Guidance</div>
+        <div class="voice-controls">
+          <button id="voice-start-btn" class="btn btn-nav"><i class="bi bi-volume-up-fill"></i> Start</button>
+          <button id="voice-stop-btn" class="btn btn-nav-outline"><i class="bi bi-volume-mute-fill"></i> Stop</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="status-banner" class="status-banner mt-3">
+    <i class="bi bi-info-circle"></i> <span id="status-text">Locating you on the map…</span>
+  </div>
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script>
+  const DESTINATION_ID = {{ location['id'] }};
+  const DESTINATION_LAT = {{ location['latitude'] }};
+  const DESTINATION_LNG = {{ location['longitude'] }};
+  const DESTINATION_NAME = {{ location['name']|tojson }};
+</script>
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+{% endblock %}

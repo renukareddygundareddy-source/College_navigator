@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Admin Login{% endblock %}
+{% block content %}
+<section class="container login-page">
+  <div class="login-card">
+    <p class="eyebrow">Admin</p>
+    <h1>Sign in</h1>
+    <form method="POST" action="{{ url_for('admin_login') }}">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required autofocus>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-nav w-100">Sign in</button>
+    </form>
+    <p class="text-muted small mt-3">Default demo login: <code>admin</code> / <code>admin123</code> — change this immediately after setup.</p>
+  </div>
+</section>
+{% endblock %}

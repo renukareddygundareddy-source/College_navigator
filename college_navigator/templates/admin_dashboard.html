@@ -1,0 +1,72 @@
+{% extends "base.html" %}
+{% block title %}Admin Dashboard{% endblock %}
+{% block content %}
+<section class="container admin-page">
+  <div class="d-flex justify-content-between align-items-center flex-wrap gap-2">
+    <div>
+      <p class="eyebrow">Admin</p>
+      <h1>Dashboard</h1>
+    </div>
+    <a href="{{ url_for('admin_logout') }}" class="btn btn-nav-outline"><i class="bi bi-box-arrow-right"></i> Logout</a>
+  </div>
+
+  <div class="row g-3 my-3">
+    <div class="col-md-3">
+      <div class="info-card"><div class="info-label">Total Visits Logged</div><div class="info-value">{{ total_visits }}</div></div>
+    </div>
+    <div class="col-md-9">
+      <div class="info-card">
+        <div class="info-label">Top Destinations</div>
+        <ul class="mb-0">
+          {% for t in top_destinations %}
+            <li>{{ t['name'] }} — {{ t['visits'] }} visits</li>
+          {% else %}
+            <li class="text-muted">No visitor data yet.</li>
+          {% endfor %}
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <h2 class="mt-4">Add New Location</h2>
+  <form method="POST" action="{{ url_for('admin_add_location') }}" class="row g-2 admin-form">
+    <div class="col-md-3"><input class="form-control" name="name" placeholder="Name" required></div>
+    <div class="col-md-2"><input class="form-control" name="category" placeholder="Category" required></div>
+    <div class="col-md-2"><input class="form-control" name="building" placeholder="Building" required></div>
+    <div class="col-md-2"><input class="form-control" name="floor" placeholder="Floor"></div>
+    <div class="col-md-1"><input class="form-control" name="latitude" placeholder="Lat" type="number" step="any" required></div>
+    <div class="col-md-1"><input class="form-control" name="longitude" placeholder="Lng" type="number" step="any" required></div>
+    <div class="col-md-1"><input class="form-control" name="node_id" placeholder="Node ID" type="number" required></div>
+    <div class="col-md-3"><input class="form-control" name="description" placeholder="Description"></div>
+    <div class="col-md-2"><input class="form-control" name="icon" placeholder="bi-geo-alt-fill"></div>
+    <div class="col-md-2"><input class="form-control" name="timings" placeholder="Timings"></div>
+    <div class="col-md-2"><input class="form-control" name="contact" placeholder="Contact"></div>
+    <div class="col-md-3"><button class="btn btn-nav w-100" type="submit"><i class="bi bi-plus-lg"></i> Add Location</button></div>
+  </form>
+
+  <h2 class="mt-5">Manage Locations</h2>
+  <div class="table-responsive">
+    <table class="table admin-table align-middle">
+      <thead><tr><th>Name</th><th>Category</th><th>Building</th><th>Active</th><th>Actions</th></tr></thead>
+      <tbody>
+      {% for loc in locations %}
+        <tr>
+          <td>{{ loc['name'] }}</td>
+          <td>{{ loc['category'] }}</td>
+          <td>{{ loc['building'] }}</td>
+          <td>{{ 'Yes' if loc['is_active'] else 'No' }}</td>
+          <td class="d-flex gap-2 flex-wrap">
+            <form method="POST" action="{{ url_for('admin_generate_qr', location_id=loc['id']) }}">
+              <button class="btn btn-sm btn-nav-outline" title="Generate QR"><i class="bi bi-qr-code"></i></button>
+            </form>
+            <form method="POST" action="{{ url_for('admin_delete_location', location_id=loc['id']) }}" onsubmit="return confirm('Deactivate this location?');">
+              <button class="btn btn-sm btn-danger"><i class="bi bi-trash"></i></button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

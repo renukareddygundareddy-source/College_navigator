@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}Contact — Campus Navigator{% endblock %}
+{% block content %}
+<section class="container simple-page">
+  <p class="eyebrow">Directory</p>
+  <h1>Department Contacts</h1>
+  <div class="table-responsive mt-4">
+    <table class="table contact-table align-middle">
+      <thead><tr><th>Office / Department</th><th>Contact</th><th>Timings</th></tr></thead>
+      <tbody>
+        {% for c in contacts %}
+        <tr>
+          <td>{{ c['name'] }}</td>
+          <td>{{ c['contact'] }}</td>
+          <td>{{ c['timings'] }}</td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</section>
+{% endblock %}

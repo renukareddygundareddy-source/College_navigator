@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %}About — Campus Navigator{% endblock %}
+{% block content %}
+<section class="container simple-page">
+  <p class="eyebrow">About the project</p>
+  <h1>AI-Powered Smart QR-Based College Navigation System</h1>
+  <p class="lead">Large campuses are hard to navigate for visitors, parents, new students and recruiters. This system lets anyone scan a QR code at the entrance and get an instant, voice-guided walking route to any department — no app install required.</p>
+
+  <div class="row g-4 mt-3">
+    <div class="col-md-4">
+      <h3><i class="bi bi-qr-code"></i> Scan &amp; Go</h3>
+      <p>QR codes at the gate and key junctions open the site instantly in any phone browser.</p>
+    </div>
+    <div class="col-md-4">
+      <h3><i class="bi bi-signpost-2"></i> Shortest Path</h3>
+      <p>Routes follow real walkways using a graph-based shortest-path algorithm, not straight lines through buildings.</p>
+    </div>
+    <div class="col-md-4">
+      <h3><i class="bi bi-mic"></i> Voice Guided</h3>
+      <p>Turn-by-turn spoken directions in multiple languages help elderly and visually impaired visitors too.</p>
+    </div>
+  </div>
+</section>
+{% endblock %}

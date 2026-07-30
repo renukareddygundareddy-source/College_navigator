@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+{% block title %}Campus Navigator — Where to?{% endblock %}
+
+{% block content %}
+<section class="hero">
+  <div class="container">
+    <p class="eyebrow">Scan &middot; Search &middot; Go</p>
+    <h1>Where do you need to be?</h1>
+    <p class="hero-sub">No app to install. Pick a destination and get a live walking route, voice-guided turn by turn, in your language.</p>
+
+    <div class="search-bar">
+      <i class="bi bi-search"></i>
+      <input type="text" id="location-search" placeholder="Search: library, admission office, hostel...">
+      <button id="mic-search-btn" title="Search by voice"><i class="bi bi-mic-fill"></i></button>
+    </div>
+    <div id="search-results" class="search-results d-none"></div>
+  </div>
+</section>
+
+<section class="container directory">
+  {% for category, locs in categories.items() %}
+  <div class="category-block">
+    <h2 class="category-title">{{ category }}</h2>
+    <div class="row g-3">
+      {% for loc in locs %}
+      <div class="col-6 col-md-4 col-lg-3">
+        <a href="{{ url_for('navigate', location_id=loc['id']) }}" class="dest-card">
+          <div class="dest-icon"><i class="bi {{ loc['icon'] }}"></i></div>
+          <div class="dest-name">{{ loc['name'] }}</div>
+          <div class="dest-meta">{{ loc['building'] }}</div>
+        </a>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</section>
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{{ url_for('static', filename='js/main.js') }}"></script>
+{% endblock %}
