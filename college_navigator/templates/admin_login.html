@@ -1,22 +1,58 @@
-{% extends "base.html" %}
-{% block title %}Admin Login{% endblock %}
-{% block content %}
-<section class="container login-page">
-  <div class="login-card">
-    <p class="eyebrow">Admin</p>
-    <h1>Sign in</h1>
-    <form method="POST" action="{{ url_for('admin_login') }}">
-      <div class="mb-3">
-        <label class="form-label">Username</label>
-        <input type="text" name="username" class="form-control" required autofocus>
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Password</label>
-        <input type="password" name="password" class="form-control" required>
-      </div>
-      <button type="submit" class="btn btn-nav w-100">Sign in</button>
-    </form>
-    <p class="text-muted small mt-3">Default demo login: <code>admin</code> / <code>admin123</code> — change this immediately after setup.</p>
-  </div>
-</section>
-{% endblock %}
+127.0.0.1 - - [31/Jul/2026 14:32:25] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:32:25] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:32:53] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:32:53] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:32:53] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:07] "GET /admin/login HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:33:07] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:07] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:33:10] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:10] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:10] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:19] "GET /admin/login HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:33:19] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:19] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:21] "POST /admin/login HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:33:21] "POST /admin/login HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:33:21] "POST /admin/login HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:33:21] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:33:21] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:33:21] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:35:16] "POST /admin/location/add HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:35:16] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:35:16] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:35:16] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:35:27] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:35:48] "GET /api/locations?q=v HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:35:48] "GET /api/locations?q=vi HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:35:51] "GET /navigate/17 HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:35:51] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:35:51] "GET /static/js/main.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:35:51] "GET /static/js/voice.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:35:51] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:15] "GET /admin/login HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:36:15] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:15] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:17] "POST /admin/login HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:36:17] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:36:17] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:17] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:28] "POST /admin/location/delete/17 HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:36:28] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:36:28] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:28] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:46] "GET /admin/login HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:36:46] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:46] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:36:54] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:36:55] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:36:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:37:00] "GET /admin/login HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:37:00] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:37:00] "GET /static/js/chatbot.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:37:02] "GET /admin HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:37:02] "GET /static/css/style.css HTTP/1.1" 304 -
+127.0.0.1 - - [31/Jul/2026 14:37:14] "GET /admin/logout HTTP/1.1" 302 -
+127.0.0.1 - - [31/Jul/2026 14:37:14] "GET /admin/login HTTP/1.1" 200 -
+127.0.0.1 - - [31/Jul/2026 14:37:14] "GET /static/js/chatbot.js HTTP/1.1" 304 -
